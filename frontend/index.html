@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>인스타그램 다운로더</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>📸 인스타그램 콘텐츠 다운로더</h1>
+
+      <div class="info-box">
+        <h3>사용 방법</h3>
+        <ol>
+          <li>
+            파일에 다음 컬럼을 포함해주세요:
+            <ul>
+              <li><strong>Link</strong>: 인스타그램 게시물 URL</li>
+              <li><strong>Id</strong>: 인스타그램 아이디</li>
+              <li><strong>Date</strong>: 날짜 (예: 2024-01-01)</li>
+            </ul>
+          </li>
+          <li>엑셀, CSV, 또는 Numbers 파일을 업로드하세요</li>
+          <li>다운로드가 완료되면 ZIP 파일을 받으세요</li>
+        </ol>
+      </div>
+
+      <div class="upload-section">
+        <input type="file" id="fileInput" accept=".xlsx,.xls,.csv,.numbers" />
+        <button id="uploadBtn" onclick="uploadFile()">
+          업로드 및 다운로드
+        </button>
+      </div>
+
+      <div id="status" class="status"></div>
+      <div id="progress" class="progress" style="display: none">
+        <div class="progress-bar"></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+  
