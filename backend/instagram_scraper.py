@@ -334,7 +334,15 @@ def process_excel_and_download(file_path, output_dir, task_id=None, progress_sta
                 
                 # 폴더 구조 생성: 인스타 아이디/날짜/
                 user_dir = os.path.join(output_dir, sanitize_filename(username))
-                date_dir = os.path.join(user_dir, sanitize_filename(date))
+                
+                # 같은 날짜 폴더가 있으면 _2, _3 등 추가
+                base_date_dir = os.path.join(user_dir, sanitize_filename(date))
+                date_dir = base_date_dir
+                counter = 2
+                while os.path.exists(date_dir) and os.listdir(date_dir):
+                    date_dir = f"{base_date_dir}_{counter}"
+                    counter += 1
+                
                 os.makedirs(date_dir, exist_ok=True)
                 
                 print(f"다운로드 중: {username} - {date} - {url}")
